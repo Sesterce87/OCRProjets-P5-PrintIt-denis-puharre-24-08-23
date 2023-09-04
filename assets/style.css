@@ -53,9 +53,10 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-body {
-
-}
+/* body {
+	width: auto;
+	height: auto;
+} */
 section {
 	margin-block: 6em;
 }
@@ -125,18 +126,28 @@ header {
 /* Gestion des fleches du carrousel */
 #banner .arrow {
 	position: absolute;
+	width: 100%;
+	height: 80px;
+  	display: flex;
+  	justify-content: space-between;
+  	padding: 0 2em;
+	transform: translate(-50%, 50%);
+	top: 35%;
+	left: 50%;
 }
 #banner .arrow_left {
-	left: 10px;
+	opacity: 0.7;
 }
 #banner .arrow_right {
-	right: 10px;
+	opacity: 0.7;
 }
 /* Gestion des points du carrousel */
 .dots {
 	position: absolute;
 	bottom: 40px;
 	display: flex;
+	width: 95px;
+	height: 15px;
 }
 .dot {
 	margin-inline: 5px;
