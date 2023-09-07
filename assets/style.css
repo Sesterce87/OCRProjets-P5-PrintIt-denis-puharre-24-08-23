@@ -121,6 +121,20 @@ header {
 	z-index: -1;
 	object-fit: cover;
 	object-position: center;
+	display: none;
+}
+
+.banner-img.active {
+	display: block;
+	animation: soft 0.8s;
+}
+@keyframes soft {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 /* Code CSS en prévision de l'ajout d'un carousel pour la bannière */
 /* Gestion des fleches du carrousel */
@@ -137,9 +151,11 @@ header {
 }
 #banner .arrow_left {
 	opacity: 0.7;
+	cursor: pointer;
 }
 #banner .arrow_right {
 	opacity: 0.7;
+	cursor: pointer;
 }
 /* Gestion des points du carrousel */
 .dots {
