@@ -122,20 +122,28 @@ header {
 	object-fit: cover;
 	object-position: center;
 	display: none;
+	animation: soft 300ms ease-in-out;
+}
+
+@keyframes soft {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.banner-img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .banner-img.active {
 	display: block;
-	animation: soft 0.8s;
 }
-@keyframes soft {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
-}
+
 /* Code CSS en prévision de l'ajout d'un carousel pour la bannière */
 /* Gestion des fleches du carrousel */
 #banner .arrow {
@@ -186,6 +194,10 @@ header {
 	color: white;
 	text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 	text-align: center;
+	position: absolute;
+  	top: 18%;
+  	left: 50%;
+  	transform: translate(-50%,50%);
 }
 #banner span {
 	display: block;

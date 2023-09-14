@@ -1,73 +1,71 @@
-// const slides = [
-// 	{
-// 		"image":"slide1.jpg",
-// 		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
-// 	},
-// 	{
-// 		"image":"slide2.jpg",
-// 		"tagLine":"Tirages haute définition grand format <span>pour vos bureaux et events</span>"
-// 	},
-// 	{
-// 		"image":"slide3.jpg",
-// 		"tagLine":"Grand choix de couleurs <span>de CMJN aux pantones</span>"
-// 	},
-// 	{
-// 		"image":"slide4.png",
-// 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
-// 	}
-// ]
-
-const slides = document.querySelectorAll ('.banner-img');
+const slides = document.querySelectorAll('.banner-img');
 const nbSlide = slides.length;
-const right = document.querySelector ('.arrow_right');
-const left = document.querySelector ('.arrow_left');
+const right = document.querySelector('.arrow_right');
+const left = document.querySelector('.arrow_left');
+const dot = document.querySelectorAll(".dot");
+const nbDot = dot.length;
 let count = 0;
 
-function slideSuivante() {
-	slides[count].classList.remove('active');
+function nextSlide() {
+    slides[count].classList.remove('active');
 
-	if(count < nbSlide - 1){
-		count++;
-	}
-	else {
-		count = 0;
-	}
+    if (count < nbSlide - 1) {
+        count++;
+    } else {
+        count = 0;
+    }
 
-	slides[count].classList.add('active');
+    slides[count].classList.add('active');
+    updateDot();
+	
 	console.log(count);
 }
-right.addEventListener("click", slideSuivante);
 
-function slidePrecedente() {
-	slides[count].classList.remove('active');
+function previousSlide() {
+    slides[count].classList.remove('active');
 
-	if(count > 0){
-		count--;
-	}
-	else {
-		count = nbSlide - 1;
-	}
+    if (count > 0) {
+        count--;
+    } else {
+        count = nbSlide - 1;
+    }
 
-	slides[count].classList.add('active');
-	console.log(count);
+    slides[count].classList.add('active');
+    updateDot();
+
+    console.log(count);
 }
-left.addEventListener("click", slidePrecedente);
 
+function updateDot() {
+    dot.forEach((dotElement, index) => {
+        if (index === count) {
+            dotElement.classList.add('dot_selected');
+        } else {
+            dotElement.classList.remove('dot_selected');
+        }
+    });
+}
+
+right.addEventListener("click", () => {
+    nextSlide();
+});
+
+left.addEventListener("click", () => {
+    previousSlide();
+});
 
 left.addEventListener("click", (event) => {
-if (event.button === 0) {
-    console.log("Clic gauche détecté");
-} 
-else if (event.button === 2) {
-    console.log("Clic droit détecté");
-}
+    if (event.button === 0) {
+        console.log("Clic gauche détecté");
+    } else if (event.button === 2) {
+        console.log("Clic droit détecté");
+    }
 });
 
 right.addEventListener("click", (event) => {
-if (event.button === 0) {
-    console.log("Clic gauche détecté");
-} 
-else if (event.button === 2) {
-    console.log("Clic droit détecté");
-}
+    if (event.button === 0) {
+        console.log("Clic gauche détecté");
+    } else if (event.button === 2) {
+        console.log("Clic droit détecté");
+    }
 });
