@@ -2,43 +2,43 @@ const slides = document.querySelectorAll('.banner-img');
 const nbSlide = slides.length;
 const right = document.querySelector('.arrow_right');
 const left = document.querySelector('.arrow_left');
-const dot = document.querySelectorAll(".dot");
-const nbDot = dot.length;
-let count = 0;
+const dots = document.querySelectorAll(".dot");
+const nbDot = dots.length;
+let sldIdx = 0;
 
 function nextSlide() {
-    slides[count].classList.remove('active');
+    slides[sldIdx].classList.remove('active');
 
-    if (count < nbSlide - 1) {
-        count++;
+    if (sldIdx < nbSlide - 1) {
+        sldIdx++;
     } else {
-        count = 0;
+        sldIdx = 0;
     }
 
-    slides[count].classList.add('active');
+    slides[sldIdx].classList.add('active');
     updateDot();
 	
-	console.log(count);
+	console.log(sldIdx);
 }
 
 function previousSlide() {
-    slides[count].classList.remove('active');
+    slides[sldIdx].classList.remove('active');
 
-    if (count > 0) {
-        count--;
+    if (sldIdx > 0) {
+        sldIdx--;
     } else {
-        count = nbSlide - 1;
+        sldIdx = nbSlide - 1;
     }
 
-    slides[count].classList.add('active');
+    slides[sldIdx].classList.add('active');
     updateDot();
 
-    console.log(count);
+    console.log(sldIdx);
 }
 
 function updateDot() {
-    dot.forEach((dotElement, index) => {
-        if (index === count) {
+    dots.forEach((dotElement, index) => {
+        if (index === sldIdx) {
             dotElement.classList.add('dot_selected');
         } else {
             dotElement.classList.remove('dot_selected');
